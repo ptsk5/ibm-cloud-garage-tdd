@@ -9,11 +9,12 @@ describe('the palindrome canary spec', () => {
   it('false for dude', () => {
     expect(isPalindrome('dude')).toBe(false);
   });
-  it.todo ('true for mom mom');
-  it.todo ('false for dad mom');
+  it('false for dad mom', () => {
+    expect(isPalindrome('dad mom')).toBe(false);
+  });
   it.todo ('true for whitespace');
   it.todo ('error for empty string');
   it.todo ('error for not a string');
 });
 
-let isPalindrome = (word) => word == word.split('').reverse().join('');
+let isPalindrome = (phrase) => phrase == phrase.split('').reverse().join(''); 
