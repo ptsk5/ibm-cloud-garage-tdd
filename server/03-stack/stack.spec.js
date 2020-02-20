@@ -49,25 +49,27 @@ describe('a stack', () => {
     stack.push('x');
     expect(stack.pop()).toBe('x');
   });
-  it.todo('pops two items with the most recent first');
+  it('pops two items with the most recent first', () => {
+    stack.push('x');
+    stack.push('y');
+    expect(stack.pop()).toBe('y');
+    expect(stack.pop()).toBe('x');
+  });
   it.todo('accepts only a positive capacity');
 });
 
 const stackFactory = () => {
-  let size = 0;
-  let element;
+  let elements = [];
   return {
-    isEmpty: () => size === 0,
-    size: () => size,
-    push: (ele) => {
-      if (size === 2) throw new Error('capacity overflow error');
-      size += 1;
-      element = ele;
+    isEmpty: () => elements.length === 0,
+    size: () => elements.length,
+    push: (element) => {
+      if (elements.length === 2) throw new Error('capacity overflow error');
+      elements.push(element);
     },
     pop: () => {
-      if (size === 0) throw new Error('capacity underflow error');
-      size -= 1;
-      return element;
+      if (elements.length === 0) throw new Error('capacity underflow error');
+      return elements.pop();
     }
   }
 };
