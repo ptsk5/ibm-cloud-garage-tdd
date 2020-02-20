@@ -45,23 +45,29 @@ describe('a stack', () => {
       stack.pop();
     }).toThrowError('capacity underflow error');
   });
-  it.todo('pops the same one item when pushed');
+  it('pops the same one item when pushed', () => {
+    stack.push('x');
+    expect(stack.pop()).toBe('x');
+  });
   it.todo('pops two items with the most recent first');
   it.todo('accepts only a positive capacity');
 });
 
 const stackFactory = () => {
   let size = 0;
+  let element;
   return {
     isEmpty: () => size === 0,
     size: () => size,
-    push: () => {
+    push: (ele) => {
       if (size === 2) throw new Error('capacity overflow error');
       size += 1;
+      element = ele;
     },
     pop: () => {
       if (size === 0) throw new Error('capacity underflow error');
       size -= 1;
+      return element;
     }
   }
 };
