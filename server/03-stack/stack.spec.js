@@ -22,9 +22,12 @@ describe('a stack', () => {
     stack.push();
     expect(stack.size()).toBe(1);
   });
-
-  it.todo('stack is empty when pushed and popped');
-
+  it('stack is empty when pushed and popped', () => {
+    stack.push();
+    stack.pop();
+    expect(stack.isEmpty()).toBe(true);
+  });
+  
   it.todo('stack size is 0 when pushed and popped');
   it.todo('throws overflow error when pushing to a stack at full capacity');
   it.todo('throw underflow error when popping an empty stack');
@@ -43,6 +46,7 @@ const stackFactory = () => {
       empty = false; 
       size += 1;
     },
+    pop: () => { empty = true; }
   }
 };
 
