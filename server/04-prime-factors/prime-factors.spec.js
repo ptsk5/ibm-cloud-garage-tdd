@@ -22,4 +22,5 @@ describe('a prime factors function should', () => {
 
 let findPrimeFactors = (number) => { 
   if (number === 1) return [];
-  return [number]; };
+  return [number]; 
+};
