@@ -29,17 +29,16 @@ describe('a prime factors function should', () => {
   it('return 2, 2, 2 for 8', () => {
     expect(findPrimeFactors(8)).toEqual([2, 2, 2]);
   });
-  it.todo('return 3, 3 for 9');
+  it('return 3, 3 for 9', () => {
+    expect(findPrimeFactors(9)).toEqual([3, 3]);
+  });
 });
 
 let findPrimeFactors = (number) => { 
   let factors = [];
-  if (number > 1) {
-    while (number % 2 === 0) {
-      factors.push(2);
-        number /= 2;
-    }
-    if (number > 1) factors.push(number);
+  for (let divisor = 2; number > 1; divisor += 1) {
+    for (; number % divisor === 0; number /= divisor) factors.push(divisor);
   }
+
   return factors;
 };
