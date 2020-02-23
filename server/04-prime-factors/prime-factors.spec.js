@@ -8,7 +8,9 @@ describe('a prime factors function should', () => {
   it('return none for 1', () => {
     expect(findPrimeFactors(1)).toEqual([]);
   });
-  it.todo('return 2 for 2');
+  it('return 2 for 2', () => {
+    expect(findPrimeFactors(2)).toEqual([2]);
+  });
   it.todo('return 3 for 3');
   it.todo('return 2, 2 for 4');
   it.todo('return 5 for 5');
@@ -18,4 +20,6 @@ describe('a prime factors function should', () => {
   it.todo('return 3, 3 for 9');
 });
 
-let findPrimeFactors = () => { return []; };
+let findPrimeFactors = (number) => { 
+  if (number === 1) return [];
+  return [number]; };
